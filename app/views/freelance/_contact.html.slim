@@ -1,0 +1,38 @@
+/! Contact Section
+section#contact.page-section
+  .container
+    /! Contact Section Heading
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contact Me
+    /! Icon Divider
+    .divider-custom
+      .divider-custom-line
+      .divider-custom-icon
+        i.fas.fa-star
+      .divider-custom-line
+    /! Contact Section Form
+    .row
+      .col-lg-8.mx-auto
+        = form_with url: appeals_path, id: "contactForm", name: "sentMessage" do |f|
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              = f.label :name, 'Name'
+              = f.text_field :name, class: 'form-control', placeholder: "Name", required: 'required', type: 'text'
+              p.help-block.text-danger
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              = f.label :email, 'Email Address'
+              = f.text_field :email, class: 'form-control', placeholder: "Email Address", required: 'required', type: 'email'
+              p.help-block.text-danger
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              = f.label :phone_number, 'Phone Number'
+              = f.text_field :phone_number, class: 'form-control', placeholder: "Phone Number", required: 'required', type: 'tel'
+              p.help-block.text-danger
+          .control-group
+            .form-group.floating-label-form-group.controls.mb-0.pb-2
+              = f.label :message, 'Message'
+              = f.text_area :message, class: 'form-control', placeholder: "Message", required: 'required', rows: '5'
+              p.help-block.text-danger
+          br/
+          #success
+            = f.submit 'Send', id: 'sendMessageButton', class: 'btn btn-primary btn-xl'
