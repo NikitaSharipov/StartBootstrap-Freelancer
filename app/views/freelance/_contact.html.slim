@@ -12,29 +12,27 @@ section#contact.page-section
     /! Contact Section Form
     .row
       .col-lg-8.mx-auto
-        /! To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.
-        form#contactForm name="sentMessage" novalidate="novalidate"
+        = form_with url: appeals_path, id: "contactForm", name: "sentMessage" do |f|
           .control-group
             .form-group.floating-label-form-group.controls.mb-0.pb-2
-              label Name
-              input#name.form-control data-validation-required-message=("Please enter your name.") placeholder="Name" required="required" type="text" /
+              = f.label :name, 'Name'
+              = f.text_field :name, class: 'form-control', placeholder: "Name", required: 'required', type: 'text'
               p.help-block.text-danger
           .control-group
             .form-group.floating-label-form-group.controls.mb-0.pb-2
-              label Email Address
-              input#email.form-control data-validation-required-message=("Please enter your email address.") placeholder=("Email Address") required="required" type="email" /
+              = f.label :email, 'Email Address'
+              = f.text_field :email, class: 'form-control', placeholder: "Email Address", required: 'required', type: 'email'
               p.help-block.text-danger
           .control-group
             .form-group.floating-label-form-group.controls.mb-0.pb-2
-              label Phone Number
-              input#phone.form-control data-validation-required-message=("Please enter your phone number.") placeholder=("Phone Number") required="required" type="tel" /
+              = f.label :phone_number, 'Phone Number'
+              = f.text_field :phone_number, class: 'form-control', placeholder: "Phone Number", required: 'required', type: 'tel'
               p.help-block.text-danger
           .control-group
             .form-group.floating-label-form-group.controls.mb-0.pb-2
-              label Message
-              textarea#message.form-control data-validation-required-message=("Please enter a message.") placeholder="Message" required="required" rows="5"
+              = f.label :message, 'Message'
+              = f.text_area :message, class: 'form-control', placeholder: "Message", required: 'required', rows: '5'
               p.help-block.text-danger
           br/
           #success
-          .form-group
-            button#sendMessageButton.btn.btn-primary.btn-xl type="submit"  Send
+            = f.submit 'Send', id: 'sendMessageButton', class: 'btn btn-primary btn-xl'

@@ -1,5 +1,6 @@
-! function(o) {
+$(document).ready(!function(o) {
     "use strict";
+    console.log(o('a.js-scroll-trigger[href*="#"]:not([href="#"])'));
     o('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
             var a = o(this.hash);
@@ -23,4 +24,4 @@
             o(this).removeClass("floating-label-form-group-with-focus")
         })
     })
-}(jQuery);
+});
